@@ -15,7 +15,8 @@ class ReabosController extends Controller
      */
     public function index()
     {
-        return view('reabos.index');
+        $reabos = Reabos::all();
+        return view('reabos.index',["reabos"=>$reabos]);
     }
 
     /**
@@ -37,7 +38,19 @@ class ReabosController extends Controller
     public function store(Request $request)
     {
         $reabo = Reabos::all()->where('client_id',$request->client_id);
-        dd($reabo);
+        if (count($reabo) > 0) {
+            $reabo[0]->relancer = true;
+            $reabo[0]->save();
+        }
+        Reabos::create([
+            'client_id'=>$request->client_id,
+            'formule'=>$request->formule,
+            'date_deb'=>$request->date_deb,
+            'date_fin'=>$request->date_fin,
+            'relancer'=>false
+        ]);
+        
+        return $this->index();
     }
 
     /**

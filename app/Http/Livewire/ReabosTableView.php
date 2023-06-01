@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Client;
 use App\Models\Reabos;
+use LaravelViews\Facades\UI;
 use LaravelViews\Views\TableView;
 
 class ReabosTableView extends TableView
@@ -19,7 +21,13 @@ class ReabosTableView extends TableView
      */
     public function headers(): array
     {
-        return [];
+        return [
+            'Nom',
+            'Formule',
+            'Date_deb',
+            'Date_fin',
+            'Relancer'
+        ];
     }
 
     /**
@@ -27,8 +35,16 @@ class ReabosTableView extends TableView
      *
      * @param $model Current model for each row
      */
-    public function row($model): array
+    public function row($reabo): array
     {
-        return [];
+        $client = Client::all()->where('id',$reabo->client_id);
+        // dd($client[0]);
+        return [
+            $client[0]->nom,
+            UI::editable($reabo,'formule'),
+            $reabo->date_deb,
+            $reabo->date_fin,
+            $reabo->relancer? UI::icon('check', 'success') : UI::icon('more-horizontal', 'warning'),
+        ];
     }
 }

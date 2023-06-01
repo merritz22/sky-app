@@ -12,8 +12,10 @@ class Reabos extends Model
 
     protected $fillable = [
         'client_id',
+        'formule',
         'date_deb',
-        'date_fin'
+        'date_fin',
+        'relancer'
     ];
 
     public function client()
