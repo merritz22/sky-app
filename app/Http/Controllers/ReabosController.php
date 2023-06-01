@@ -14,7 +14,7 @@ class ReabosController extends Controller
      */
     public function index()
     {
-        //
+        return view('reabos.index');
     }
 
     /**

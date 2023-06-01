@@ -5,7 +5,10 @@ export default defineConfig({
     plugins: [
         laravel([
             'resources/css/app.css',
+            'resources/css/laravel-views.css',
+            'resources/css/tailwind.css',
             'resources/js/app.js',
+            'resources/js/laravel-views.js',
         ]),
     ],
 });

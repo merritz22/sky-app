@@ -14,7 +14,9 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::all();
+        // dd($clients);
+        return view('clients.index',['clients'=>$clients]);
     }
 
     /**
@@ -24,7 +26,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create');
     }
 
     /**
@@ -35,7 +37,19 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nom'=>['required','string','max:255','unique:clients'],
+            'telephone'=>['required','string','max:255','unique:clients'],
+            'num_abo'=>['required','string','unique:clients']
+        ]);
+
+        Client::create([
+            'nom'=>$request->nom,
+            'telephone'=>$request->telephone,
+            'num_abo'=>$request->num_abo
+        ]);
+        
+        return $this->index();
     }
 
     /**

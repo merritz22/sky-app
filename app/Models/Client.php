@@ -10,6 +10,12 @@ class Client extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'nom',
+        'telephone',
+        'num_abo'
+    ];
+
     public function reabos()
     {
         return $this->hasMany(Reabos::class);
