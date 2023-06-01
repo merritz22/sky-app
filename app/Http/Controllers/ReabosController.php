@@ -36,7 +36,7 @@ class ReabosController extends Controller
      */
     public function store(Request $request)
     {
-        $reabo = Reabos::find($request->client_id);
+        $reabo = Reabos::all()->where('client_id',$request->client_id);
         dd($reabo);
     }
 
