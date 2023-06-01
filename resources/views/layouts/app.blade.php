@@ -36,7 +36,9 @@
         </div>
         @laravelViewsScripts
         <script>
-            feather.replace()
+            setInterval(() => {
+                feather.replace()
+            }, 1000);
         </script>
     </body>
 </html>

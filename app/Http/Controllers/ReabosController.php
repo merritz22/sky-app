@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reabos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class ReabosController extends Controller
 {
@@ -24,7 +25,7 @@ class ReabosController extends Controller
      */
     public function create()
     {
-        //
+        return view('reabos.create',['id'=>array_keys($_REQUEST)[0]]);
     }
 
     /**
@@ -35,7 +36,8 @@ class ReabosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reabo = Reabos::find($request->client_id);
+        dd($reabo);
     }
 
     /**

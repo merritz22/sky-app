@@ -27,7 +27,7 @@ You can customize the variants classes in config/laravel-views.php
     </div>
 
     {{-- Flush this message from the session --}}
-    <button @click.prevent="{{ $onClose ?? ''}}" class="text-gray-400 hover:text-gray-900 transition duration-300 ease-in-out cursor-pointer">
+    <button @click.prevent="{{ $onClose ?? ''}}" class="text-gray-400 hover:text-gray-900 transition duration-3 ease-in-out cursor-pointer">
       <i data-feather="x-circle"></i>
     </button>
   </div>

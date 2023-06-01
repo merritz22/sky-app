@@ -29,5 +29,6 @@ Route::post('/clients', [ClientController::class,'store'])->middleware(['auth'])
 
 Route::get('/reabos', [ReabosController::class,'index'])->middleware(['auth'])->name('reabos');
 Route::get('/reabos/create', [ReabosController::class,'create'])->middleware(['auth'])->name('create_reabo');
+Route::post('/reabos', [ReabosController::class,'store'])->middleware(['auth'])->name('store_reabo');
 
 require __DIR__.'/auth.php';

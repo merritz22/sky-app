@@ -14,7 +14,7 @@ Render an editable input field --}}
   <input
     x-cloak
     x-ref="input"
-    x-show="editing"
+    x-show="!editing"
     x-model="value"
     @keydown.enter="$wire.update(id, {
       [field]: value
