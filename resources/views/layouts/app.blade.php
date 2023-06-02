@@ -33,6 +33,14 @@
                 {{ $slot }}
             </main>
         </div>
+        <script>
+            function alertClose() {
+                document.querySelectorAll('.alert-card').forEach(tag => {
+                    tag.className = "hidden"
+                    // alert(tag.className)
+                });
+            }
+        </script>
         @laravelViewsScripts
     </body>
 </html>
