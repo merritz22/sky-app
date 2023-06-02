@@ -9,7 +9,6 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-        <script src="https://unpkg.com/feather-icons"></script>
         <!-- Styles -->
         
         @laravelViewsStyles
@@ -35,10 +34,5 @@
             </main>
         </div>
         @laravelViewsScripts
-        <script>
-            setInterval(() => {
-                feather.replace()
-            }, 1000);
-        </script>
     </body>
 </html>

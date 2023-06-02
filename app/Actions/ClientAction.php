@@ -21,6 +21,7 @@ class ClientAction extends Action
 
     public function handle($model, View $view)
     {
+        // dd($model);
         $model->delete();
     }
 }

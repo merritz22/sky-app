@@ -37,10 +37,10 @@ class ReabosController extends Controller
      */
     public function store(Request $request)
     {
-        $reabo = Reabos::all()->where('client_id',$request->client_id);
-        if (count($reabo) > 0) {
-            $reabo[0]->relancer = true;
-            $reabo[0]->save();
+        $reabos = Reabos::all()->where('client_id',$request->client_id)->where('relancer',false);
+        foreach ($reabos as $key => $reabo) {
+            $reabo->relancer = true;
+            $reabo->save();
         }
         Reabos::create([
             'client_id'=>$request->client_id,
